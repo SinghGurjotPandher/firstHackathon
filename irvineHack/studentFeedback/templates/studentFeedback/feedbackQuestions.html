@@ -1,0 +1,23 @@
+{% extends "/Users//----------------//Desktop/irvineHack/studentFeedback/templates/studentFeedback/layout.html" %}
+
+{% block body %}
+    <h1> Student Feedback for ICS Department Courses </h1>
+
+    <form action = '{% url "receivedFeedback" %}' method = 'POST'>
+        {% csrf_token %}
+        Student ID: <input type = 'text', name = "id"> <br><br>
+        What is your overall expression of the course content?
+        <input type = 'text', name = 'courseImpression'> <br><br>
+        How well did the course content meet your expectations?
+        <input type = 'text', name = 'expectations'> <br><br>
+        How much would rate this course? 5 being the best and 1 being the worst.
+        <select name = 'rating'>
+            <option value = '5'> 5 </option>
+            <option value = '4'> 4 </option>
+            <option value = '3'> 3 </option>
+            <option value = '2'> 2 </option>
+            <option value = '1'> 1 </option>
+        </select><br> <br>
+        <input type = 'submit', name = 'feedback', value = 'Submit Feedback Form'>
+    </form>
+{% endblock %}
